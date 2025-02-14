@@ -1,15 +1,12 @@
 import React from "react";
 import MyFrag from "./components/MyFrag";
+import ExpenseInfo from "./components/ExpenseInfo";
 
 function App() {
   return (
-    <MyFrag>
-      <>
-        <img />
-      </>
-      <h1>gdfhfghfghgf</h1>
-      <h1>gdfhfghfghgf</h1>
-    </MyFrag>
+    <>
+      <ExpenseInfo />
+    </>
   );
 }
 
