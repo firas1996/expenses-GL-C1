@@ -31,10 +31,16 @@ function App() {
   ];
   return (
     <>
-      <ExpenseInfo />
-      <ExpenseInfo />
-      <ExpenseInfo />
-      <ExpenseInfo />
+      {data.map((item) => {
+        return (
+          <ExpenseInfo
+            key={item.id}
+            title={item.title}
+            price={item.price}
+            date={item.date}
+          />
+        );
+      })}
     </>
   );
 }
