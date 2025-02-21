@@ -1,6 +1,7 @@
 import React from "react";
 import MyFrag from "./components/MyFrag";
 import ExpenseInfo from "./components/ExpenseInfo";
+import ExpenseContainer from "./components/ExpenseContainer";
 
 function App() {
   const data = [
@@ -31,16 +32,7 @@ function App() {
   ];
   return (
     <>
-      {data.map((item) => {
-        return (
-          <ExpenseInfo
-            key={item.id}
-            title={item.title}
-            price={item.price}
-            date={item.date}
-          />
-        );
-      })}
+      <ExpenseContainer data={data} />
     </>
   );
 }
