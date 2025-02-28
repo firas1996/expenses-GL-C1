@@ -1,6 +1,6 @@
 import "./ChartBar.css";
 
-const ChartBar = () => {
+const ChartBar = ({ name, value }) => {
   return (
     <div className="chart-bar">
       <div className="chart-bar__inner">
