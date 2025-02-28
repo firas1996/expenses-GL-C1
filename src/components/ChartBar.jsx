@@ -6,7 +6,7 @@ const ChartBar = ({ name, value }) => {
       <div className="chart-bar__inner">
         <div className="chart-bar__fill"></div>
       </div>
-      <div className="chart-bar__label">Jan</div>
+      <div className="chart-bar__label">{name}</div>
     </div>
   );
 };
