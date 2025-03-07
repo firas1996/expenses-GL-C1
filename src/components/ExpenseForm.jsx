@@ -36,6 +36,7 @@ const ExpenseForm = () => {
               placeholder="Title"
               name="title"
               onChange={handelChange}
+              value={formData.title}
             />
           </div>
           <div className="expense-form__control">
@@ -48,6 +49,7 @@ const ExpenseForm = () => {
               step="0.01"
               name="price"
               onChange={handelChange}
+              value={formData.price}
             />
           </div>
           <div className="expense-form__control">
@@ -59,6 +61,7 @@ const ExpenseForm = () => {
               max={maxDate}
               name="date"
               onChange={handelChange}
+              value={formData.date}
             />
           </div>
         </div>
