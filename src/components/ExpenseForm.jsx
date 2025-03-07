@@ -16,9 +16,18 @@ const ExpenseForm = () => {
       return { ...prevState, [name]: value };
     });
   };
+  const submitHandler = (event) => {
+    event.preventDefault();
+    console.log(formData);
+    setFormData({
+      title: "",
+      price: "",
+      date: "",
+    });
+  };
   return (
     <div className="expense-form">
-      <form>
+      <form onSubmit={submitHandler}>
         <div className="expense-form__controls">
           <div className="expense-form__control">
             <label>Title</label>
@@ -55,7 +64,7 @@ const ExpenseForm = () => {
         </div>
         <div className="expense-form__actions">
           <button>Cancel</button>
-          <button>Add Expense</button>
+          <button type="submit">Add Expense</button>
         </div>
       </form>
     </div>
