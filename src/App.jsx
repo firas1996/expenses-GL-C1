@@ -2,6 +2,7 @@ import React from "react";
 import MyFrag from "./components/MyFrag";
 import ExpenseInfo from "./components/ExpenseInfo";
 import ExpenseContainer from "./components/ExpenseContainer";
+import ExpenseForm from "./components/ExpenseForm";
 
 function App() {
   const data = [
@@ -32,6 +33,7 @@ function App() {
   ];
   return (
     <>
+      <ExpenseForm />
       <ExpenseContainer data={data} />
     </>
   );
