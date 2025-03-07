@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import MyFrag from "./components/MyFrag";
 import ExpenseInfo from "./components/ExpenseInfo";
 import ExpenseContainer from "./components/ExpenseContainer";
 import ExpenseForm from "./components/ExpenseForm";
 
 function App() {
-  const data = [
+  const oldData = [
     {
       id: 1,
       title: "Voyage",
@@ -31,9 +31,13 @@ function App() {
       date: new Date("2023-10-14"),
     },
   ];
+  const [data, setData] = useState(oldData);
+  const addExpense = (expense) => {
+    setData([expense, ...data]);
+  };
   return (
     <>
-      <ExpenseForm />
+      <ExpenseForm addExpense={addExpense} />
       <ExpenseContainer data={data} />
     </>
   );
