@@ -10,6 +10,10 @@ const ExpenseForm = ({ addExpense }) => {
     price: "",
     date: "",
   });
+  const [showForm, setShowForm] = useState(false);
+  const showFormHandler = () => {
+    setShowForm(!showForm);
+  };
   const handelChange = ({ target }) => {
     const { name, value } = target;
     setFormData((prevState) => {
@@ -32,49 +36,55 @@ const ExpenseForm = ({ addExpense }) => {
   };
   return (
     <div className="expense-form">
-      <form onSubmit={submitHandler}>
-        <div className="expense-form__controls">
-          <div className="expense-form__control">
-            <label>Title</label>
-            <input
-              required
-              placeholder="Title"
-              name="title"
-              onChange={handelChange}
-              value={formData.title}
-            />
+      {showForm ? (
+        <form onSubmit={submitHandler}>
+          <div className="expense-form__controls">
+            <div className="expense-form__control">
+              <label>Title</label>
+              <input
+                required
+                placeholder="Title"
+                name="title"
+                onChange={handelChange}
+                value={formData.title}
+              />
+            </div>
+            <div className="expense-form__control">
+              <label>Price</label>
+              <input
+                required
+                placeholder="Price"
+                type="number"
+                min="0"
+                step="0.01"
+                name="price"
+                onChange={handelChange}
+                value={formData.price}
+              />
+            </div>
+            <div className="expense-form__control">
+              <label>Date</label>
+              <input
+                required
+                type="date"
+                min={minDate}
+                max={maxDate}
+                name="date"
+                onChange={handelChange}
+                value={formData.date}
+              />
+            </div>
           </div>
-          <div className="expense-form__control">
-            <label>Price</label>
-            <input
-              required
-              placeholder="Price"
-              type="number"
-              min="0"
-              step="0.01"
-              name="price"
-              onChange={handelChange}
-              value={formData.price}
-            />
+          <div className="expense-form__actions">
+            <button type="button" onClick={showFormHandler}>
+              Cancel
+            </button>
+            <button type="submit">Add Expense</button>
           </div>
-          <div className="expense-form__control">
-            <label>Date</label>
-            <input
-              required
-              type="date"
-              min={minDate}
-              max={maxDate}
-              name="date"
-              onChange={handelChange}
-              value={formData.date}
-            />
-          </div>
-        </div>
-        <div className="expense-form__actions">
-          <button>Cancel</button>
-          <button type="submit">Add Expense</button>
-        </div>
-      </form>
+        </form>
+      ) : (
+        <button onClick={showFormHandler}>Add New Expense</button>
+      )}
     </div>
   );
 };
